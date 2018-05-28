@@ -9,7 +9,7 @@
     <div class="list-of-tasks">
         <div class="sub-heading">Tasks:</div>
         <task-row v-for="taskID in project.taskIDs" :key="taskID" :taskID="taskID"></task-row>
-        <div class="task" v-if="listOfTasks.length == 0">
+        <div class="task" v-if="project.taskIDs.length == 0">
             There are no tasks to show in this project. Create your first task now!
         </div>
         <div class="task">
@@ -48,16 +48,6 @@ export default {
         project: function () {
             // Fetch the project object from store and return
             return this.$store.state[this.projectID]
-        },
-        listOfTasks: function () {
-            let listOfTasks = []
-            this.project.taskIDs.forEach(taskID => {
-                let thisTask = this.$store.state[taskID]
-                if (thisTask) {
-                    listOfTasks.push(thisTask)
-                }
-            })
-            return listOfTasks
         }
     },
     methods: {
@@ -124,6 +114,7 @@ export default {
             font-weight: bold;
         }
         .task {
+            position: relative;
             padding: 10px;
             border-top: 1px solid #DDD;
             .fa {
@@ -132,6 +123,23 @@ export default {
             }
             &.completed {
                 color: #B8B8B8;
+            }
+            .task-options {
+                position: absolute;
+                display: none;
+                top: 0;
+                right: 0;
+                .delete-button {
+                    cursor: pointer;
+                    margin: 12px 10px;
+                    line-height: 16px;
+                    color: #822;
+                }
+            }
+            &:hover {
+                .task-options {
+                    display: block;
+                }
             }
         }
     }

@@ -3,7 +3,7 @@
     <div class="container">
         <router-link class="navbar-brand" :to="{name: 'Dashboard'}">
             <i class="fa fa-braille"></i>
-            <span style="margin-left: 12px;">Project Management App</span>
+            <span style="margin-left: 12px;">Projects and Tasks</span>
         </router-link>
     </div>
 </nav>

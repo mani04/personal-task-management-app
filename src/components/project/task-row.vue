@@ -2,6 +2,9 @@
 <div class="task" :class="{'completed': task.completed}">
     <i class="fa" :class="[task.completed ? 'fa-check-square-o' : 'fa-square-o']" @click="toggleCompletedStatus()"></i>
     {{task.title}}
+    <div class="task-options">
+        <i class="fa fa-times-circle delete-button" @click="deleteTask"></i>
+    </div>
 </div>
 </template>
 
@@ -30,6 +33,23 @@ export default {
                 value: clonedTask
             }).then(() => {
                 console.log("Updated status for " + clonedTask.title)
+            })
+        },
+        deleteTask: function () {
+            // Remove this task ID from the parent project object
+            let project = this.$store.state[this.task.projectID]
+            // As usual, clone the project to avoid directly manipulating store objects
+            let clonedProject = JSON.parse(JSON.stringify(project))
+            // Find the index of this task and remove element in that index using splice
+            clonedProject.taskIDs.splice(clonedProject.taskIDs.indexOf(this.taskID), 1)
+            // Record changes to project object
+            this.$store.dispatch("update", {
+                key: clonedProject.id,
+                value: clonedProject
+            })
+            // Remove task
+            this.$store.dispatch("delete", {
+                key: this.taskID
             })
         }
     }
