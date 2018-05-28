@@ -8,7 +8,7 @@
             <router-link :to="{ name: 'Project', params: {projectID: project.id} }">{{project.name}}</router-link>
         </div>
         <div class="details">
-            Number of Tasks: #TODO
+            Number of Tasks: {{project.taskIDs.length}}
         </div>
     </div>
     <div class="project-summary" v-if="allProjects.length == 0">
