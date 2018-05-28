@@ -4,7 +4,8 @@
     <router-view></router-view>
     <div class="footer">
         <div class="container">
-            &copy; 2018 (open-source)
+            <span>&copy; 2018 (open-source)</span>
+            <span class="float-right">View this project on Github</span>
         </div>
     </div>
 </div>
@@ -17,6 +18,16 @@ export default {
     name: "App",
     components: {
         "navbar": Navbar
+    },
+    data: function () {
+        return {
+            initializingApp: true
+        }
+    },
+    mounted: function () {
+        this.$store.dispatch("initialize").then(() => {
+            this.initializingApp = false
+        })
     }
 }
 </script>
