@@ -1,10 +1,10 @@
 <template>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <router-link class="navbar-brand" :to="{name: 'Dashboard'}">
             <i class="fa fa-braille"></i>
             <span style="margin-left: 12px;">Project Management App</span>
-        </a>
+        </router-link>
     </div>
 </nav>
 </template>
