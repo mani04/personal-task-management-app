@@ -5,7 +5,9 @@
     <div class="footer">
         <div class="container">
             <span>&copy; 2018 (open-source)</span>
-            <span class="float-right">View this project on Github</span>
+            <span class="float-right">
+                <a href="https://github.com/mani04/personal-task-management-app" target="_blank">View this project on Github</a>
+            </span>
         </div>
     </div>
 </div>
@@ -59,6 +61,10 @@ html, body {
         line-height: 30px;
         color: #424242;  /* Grey 800 */
         background-color: #DDD;
+        a {
+            text-decoration: none;
+            color: #000;
+        }
     }
 }
 </style>

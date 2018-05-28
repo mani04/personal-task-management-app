@@ -1,6 +1,10 @@
-# personal-task-manager-app
+# personal-task-management-app
 
 > A Vue.js project
+
+This is a repeat of the TodoMVC exercise with a 2-level hierarchy of Projects and Tasks. The app allows user to create a project and add tasks within the project to keep everything organized.
+
+Demo: https://www.mani-jagadeesan.com/personal-project-management-app
 
 ## Build Setup
 
